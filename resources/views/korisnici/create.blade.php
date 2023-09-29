@@ -8,4 +8,4 @@
     <button type="submit">Spremi</button>
 </form>
 
-<a href="route('korisnici.index')">Povratak na popis korisnika</a>
+<a href="route('korisnici.index')">Povratak na popis korisnika</a> <!--(klasa.motoda)-->
