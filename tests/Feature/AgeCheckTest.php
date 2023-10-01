@@ -11,12 +11,12 @@ class AgeCheckTest extends TestCase
     public function testMladiOd18()
     {
         $response=$this->get("/welcome?age=10");
-        $response->assertRedirect("/under18");
+        $response->assertRedirect("/under18"); // provjera je li http zahtjev preusmjerio na stranicu
     }
 
     public function testStarijiOd18()
     {
         $response=$this->get("/welcome?age=30");
-        $response->assertSee("Dobrodošli!");
+        $response->assertSee("Dobrodošli!"); // to ću vidjeti
     }
 }

@@ -29,7 +29,7 @@ class KorisniciController extends Controller
     {
         $noviID=count($this->korisnici)+1; // izračun slijedećeg id-a
         $this->korisnici[]=["id"=>$noviID, "ime"=>$request->ime]; // novi ID i novo ime s forme
-        return redirect("/korisnici"); // nakon spremanja vraćanje na početak, popis korisnika
+        return view("korisnici.index", ["korisnici"=>$this->korisnici]); // nakon spremanja vraćanje na početak, popis korisnika
     }
 
     // prikaz forme za promjenu podataka (korisnika s određenim id)
@@ -51,10 +51,10 @@ class KorisniciController extends Controller
             if ($korisnik["id"]==$id)
             {
                 $korisnik["ime"]=$request->ime; // kad naiđe na isti id spremi podatak i prekidamo s break da se ne vrti do kraja
-                break;
+                $this->korisnici[$id]=["id"=>$id, "ime"=>$request->ime];
             }
         }
-        return redirect("/korisnici");
+        return view("korisnici.index", ["korisnici"=>$this->korisnici]);
     }
 
     // brisanje podatka s određenim id
@@ -66,7 +66,7 @@ class KorisniciController extends Controller
         });
         // ako je id različit od poslanog, podatak ostaje u nizu, ako je isti, podatak se briše
 
-        return redirect("/korisnici");
+        return view("korisnici.index", ["korisnici"=>$this->korisnici]);
     }
 
 

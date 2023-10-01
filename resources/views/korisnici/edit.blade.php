@@ -1,12 +1,12 @@
-<h1>Uredi korisnika: {{$korisnik["ime"]}}</h1>
+<h1>Uredi korisnika: {{$korisnik['ime']}}</h1>
 
-<form action="{{route('korisnici.update', $korisnik['id'])}}" method="POST">
+<form action="/korisnici/{{$korisnik['id']}}/update" method="POST">
     @csrf
     @method("PUT")
     <label>Ime</label>
     <input type="text" name="ime" value="{{$korisnik['ime']}}">
-    <br>
+    <br><br>
     <button type="submit">Spremi promjene</button>
 </form>
 
-<a href="route('korisnici.index')">Povratak na popis korisnika</a>
+<a href="/korisnici">Povratak na popis korisnika</a>

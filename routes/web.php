@@ -22,20 +22,20 @@ Route::get('/', function () {
 Route::get("/korisnici", [KorisniciController::class, "index"]); // index je naziv metode iz controllera
 
 // prikaz forme za stvarnje korisnika
-Route::get("/korisnik/create",[KorisniciController::class, "create"]);
+Route::get("/korisnici/create",[KorisniciController::class, "create"]);
 
 // spremanje novog korisnika
-Route::post("/korisnici", [KorisniciController::class, "store"]);
+Route::put("/korisnici/store", [KorisniciController::class, "store"]);
 
 // prikaz forme za uređivanje korisnika
-Route::get("/korisnik/{id}/edit", [KorisniciController::class, "edit"] );
+Route::get("/korisnici/{id}/edit", [KorisniciController::class, "edit"] );
 
 // ažuriranje korisnika
 //Route::post("/korisnik/{id}/edit", [KorisniciController::class, "update"]);
-Route::put("/korisnik/{id}", [KorisniciController::class, "update"]);
+Route::put("/korisnici/{id}/update", [KorisniciController::class, "update"]);
 
 // brisanje korisnika
-Route::delete("/korisnik/{id}", [KorisniciController::class, "destroy"]);
+Route::delete("/korisnici/{id}/destroy", [KorisniciController::class, "destroy"]);
 
 // ako je ispod 18, redirekt na stranicu s porukom ili samo poruka:
 Route::get("/under18", function()

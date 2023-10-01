@@ -1,11 +1,12 @@
 <h1>Dodaj novog korisnika</h1>
 
-<form action="{{route('korisnici.store')}}" method="POST">
+<form action="/korisnici/store" method="POST">
     @csrf
+    @method("PUT")
     <label>Ime: </label>
     <input type="text" name="ime">
-    <br>
+    <br><br>
     <button type="submit">Spremi</button>
 </form>
 
-<a href="route('korisnici.index')">Povratak na popis korisnika</a> <!--(klasa.motoda)-->
+<a href="/korisnici">Povratak na popis korisnika</a>
