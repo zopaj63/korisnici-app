@@ -1,4 +1,4 @@
-<h1>Uredi korisnika: {{$korisnik['id']}}</h1>
+<h1>Uredi korisnika: {{$korisnik['ime']}}</h1>
 
 <form action="/korisnici/{{$korisnik['id']}}/update" method="POST">
     @csrf
